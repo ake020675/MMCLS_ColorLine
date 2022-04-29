@@ -5,7 +5,7 @@ MMCLS files for train and inference ColorLine model。
 # 文件描述
 ## mmclassification相关文件（0.18.0版本）
 1 mobilenet-v2_8xb32_frameH500.py
-  配置文件，包括模型、优化器、数据集、日志及工作流的定义。
+  配置文件，包括模型、优化器、数据集、日志及工作流的定义。<br>
 2 LaserLabel.py
   数据集定义，imagenet格式，定义分类的类别。
   
@@ -13,7 +13,7 @@ MMCLS files for train and inference ColorLine model。
 1 build_dataset.py： 
 *  从防伪区域图像LaserLabel中提取彩色线条区域ColorLine
 *  按面积进行筛选，得到ColorLine400数据集
-*  对清洗后的ColorLine400数据集，按标签号分为训练/验证/测试集，生成对应的TXT文件（图像路径及类别标注信息）。
+*  对清洗后的ColorLine400数据集，按标签号分为训练/验证/测试集，生成对应的TXT文件（图像路径及类别标注信息）。<br>
 2 data_cleaner.py： 
   对ColorLine400数据集进行数据清洗，删除模糊、相似图像。
 ## 模型转换
@@ -29,7 +29,7 @@ MMCLS files for train and inference ColorLine model。
 *  添加自定义数据库：将LaserLabel.py添加到mmclassification\mmcls\datasets，并修改init.py等相关文件
 ## 训练/测试模型。
 *  训练模型
-     ```python tools/train.py --config configs/mobilenet_v2/mobilenet-v2_8xb32_frameH500.py```
+     ```python tools/train.py --config configs/mobilenet_v2/mobilenet-v2_8xb32_frameH500.py```<br>
 *  测试模型
      ```python tools/test.py --config configs/mobilenet_v2/mobilenet-v2_8xb32_frameH500.py --checkpoint tools/work_dirs/mobilenet-v2_8xb32_frameH500/epoch_300.pth --out results/result.json```
 ## 模型转换为onnx
