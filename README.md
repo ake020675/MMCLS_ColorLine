@@ -4,20 +4,21 @@ MMCLS files for train and inference ColorLine model。
 
 # 文件描述
 ## mmclassification相关文件（0.18.0版本）
-1 mobilenet-v2_8xb32_frameH500.py
+1.mobilenet-v2_8xb32_frameH500.py
   配置文件，包括模型、优化器、数据集、日志及工作流的定义。<br>
-2 LaserLabel.py
+2.LaserLabel.py
   数据集定义，imagenet格式，定义分类的类别。
   
 ## 数据集预处理
-1 build_dataset.py： 
+1.build_dataset.py： 
 *  从防伪区域图像LaserLabel中提取彩色线条区域ColorLine
 *  按面积进行筛选，得到ColorLine400数据集
 *  对清洗后的ColorLine400数据集，按标签号分为训练/验证/测试集，生成对应的TXT文件（图像路径及类别标注信息）。<br>
-2 data_cleaner.py： 
-  对ColorLine400数据集进行数据清洗，删除模糊、相似图像。
-## 模型转换
-  ```remove_initializer_from_input.py： 作用于onnx格式模型文件，运行后生成新的onnx文件，调用时不会出现警告信息。```
+2.data_cleaner.py： 
+    对ColorLine400数据集进行数据清洗，删除模糊、相似图像。
+## 模型转换及测试
+*  remove_initializer_from_input.py： 作用于onnx格式模型文件，运行后生成新的onnx文件，调用时不会出现警告信息。
+*  inference.py:  分类模型推理调用接口，调用pt或onnx模型进行推理
 
 # 使用方法
 ## 准备数据集
